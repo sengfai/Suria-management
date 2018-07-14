@@ -16,7 +16,7 @@
 // });
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/suria-management', 'HomeController@index')->name('home');
 
 Auth::routes();
 Route::get('/url_fetch_content', 'UrlFecthContentController@url_fetch_content')->name('url_fetch_content');
