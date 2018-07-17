@@ -85,9 +85,8 @@
                                 <td class="sorting_1"> <?php echo $content_list->category ?> </td>
                                 <td class="btn_view">
                                 <div class="btn-group">                                 
-                                  <button type="button" id="view_manage_conetnt" name="view_manage_conetnt" class="btn btn-default">View</button>
-                                  <button type="button" class="btn btn-default">Ignore</button>
-                                </form>                                 
+                                  <button type="button" id="view_manage_conetnt" name="view_manage_conetnt" class="btn btn-default viewID" data-id="{{$content_list->id}}" >View</button>
+                                  <button type="button" class="btn btn-default">Ignore</button>                                                            
                                                                
                                 </div> 
                                 </td>

@@ -150,13 +150,24 @@
     $(document).ready(function() {
     var table = $('#table_manage_content').DataTable();
      
-    $('#table_manage_content tbody').on('click','tr td.btn_view', function () {
-        var data = table.row(this).data();
-        //alert( 'You clicked on '+data[0]+'\'s row' );
-        document.getElementById("txt_title").value = data[0];
+    $('.viewID').on('click',function () {
+        id = $(this).attr('data-id');
+        getContent(id);
+        // var data = table.row(this).data();
+        // //alert( 'You clicked on '+data[0]+'\'s row' );
+        // document.getElementById("txt_title").value = data[0];
 
     } );
 } );
+
+    function getContent(id) {
+
+        $.get('{{url('getcontent')}}',{id:id},function(res){
+            $('#txt_title').val(res.content_title);
+            $('#url_category_').val(res.category_id);
+            console.log(res);
+        })
+    }
 
  // end #can click button to view 
 

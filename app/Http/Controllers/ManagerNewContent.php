@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\suria_parameters;
 use DB;
+use App\Contents;
 
 class ManagerNewContent extends Controller
 {
@@ -17,8 +18,10 @@ class ManagerNewContent extends Controller
     	->with('content_lists', $content_list)
       	 ->with(['parameters'=> $parameter]);
     }
-      public function view_data(){
-      	
+    public function view_data(Request $request){
+    	$id = $request->id;
+    	$data = Contents::findOrFail($id);
+      	return $data;
       }
 
 }
