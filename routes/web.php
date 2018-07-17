@@ -22,4 +22,5 @@ Auth::routes();
 Route::get('/url_fetch_content', 'UrlFecthContentController@url_fetch_content')->name('url_fetch_content');
 Route::post('/url_fetch_content','UrlFecthContentController@get_url');
 Route::get('/manager_new_content', 'ManagerNewContent@index');
+//Route::post('/manager_new_content/{id}','ManagerNewContent@view_data');
 

@@ -132,14 +132,11 @@
                             .draw();
                     } );
  
-                // column.data().unique().sort().each( function ( d, j ) {
-                //     select.append( '<option value="'+d+'">'+d+'</option>' )
-                // } );
+               
             } );
         }
     } );
 } );
-
 
   $(function () {
     // Replace the <textarea id="editor1"> with a CKEditor
@@ -147,8 +144,22 @@
     CKEDITOR.replace('editor1')
     //bootstrap WYSIHTML5 - text editor
     // $('.textarea').wysihtml5()
-  })
+  });
     
+   // can click button to view
+    $(document).ready(function() {
+    var table = $('#table_manage_content').DataTable();
+     
+    $('#table_manage_content tbody').on('click','tr td.btn_view', function () {
+        var data = table.row(this).data();
+        //alert( 'You clicked on '+data[0]+'\'s row' );
+        document.getElementById("txt_title").value = data[0];
+
+    } );
+} );
+
+ // end #can click button to view 
+
 </script>
 <!-- #end -->
 

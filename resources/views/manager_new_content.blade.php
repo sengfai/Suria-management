@@ -48,55 +48,75 @@
           </div>
 <!-- ----------------------- end editor --------------------------------- -->
 <!-- --------------- content list ------------------------- -->
-   <div class="box">
-            <div class="box-header with-border">
-              <h3 class="box-title">Content List </h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table class="table table-bordered" width="100%">
-                <tbody><tr>
-                  <th style="width: 5%">#</th>
-                  <th style="width: 45%">{{ trans('adminlte::adminlte.colunm_title') }}</th>
-                  <th style="width: 20%">{{ trans('adminlte::adminlte.colunm_category') }}</th>
-                  <th style="width: 15%">{{ trans('adminlte::adminlte.colunm_action') }}</th>
-                 <!--  <th style="width: 10%">Status</th> -->
-                </tr>
-                <tr>
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title"> {{ trans('adminlte::adminlte.table_view_mangement_content') }}</h3>
+    </div>
+        <div class="box-body">
+        <div id="content_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+            <div class="row">
                 
-                 <?php foreach($content_lists as $content_list) { ?>
-                      <?php $i=1; ?>
-                            <tr role="row" class="odd">
-                             
-                                <td > <?php echo $i++ ?> </td>
-                                <td > <?php echo $content_list->content_title?> </td>
-                                <td > <?php echo $content_list->category ?> </td>
-                                 <td >
-                                <div class="btn-group">
-                                <button type="button" class="btn btn-default">View</button>
-                                <button type="button" class="btn btn-default">Ignore</button>
-                                </div>
-                                </td>                                                   
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <table id="table_manage_content" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column descending" style="width: 30px;" aria-sort="ascending">
+                                {{ trans('adminlte::adminlte.colunm_order') }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column descending" style="width: 65px;" aria-sort="ascending">
+                                {{ trans('adminlte::adminlte.colunm_code') }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column descending" style="width: 200px;" aria-sort="ascending">
+                                {{ trans('adminlte::adminlte.colunm_title') }}</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 200px;">
+                                  {{ trans('adminlte::adminlte.colunm_category') }}</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 65px;">
+                                {{ trans('adminlte::adminlte.colunm_action') }}</th>
+                               
                             </tr>
-                         <?php } ?>
-                  
-                
-                </tr>
-               
-              </tbody></table>
+                        </thead>
+                        <tbody>
+                          <?php foreach($content_lists as $content_list) { ?>
+                            <!-- <?php $i=1; ?> -->
+                            <tr role="row" class="odd">
+                                <td class="sorting_1"> <?php echo $content_list->id ?> </td>
+                                 <td class="sorting_1"> <?php echo $content_list->content_code ?> </td>
+                                <td class="sorting_1"> <?php echo $content_list->content_title ?> </td>
+                                <td class="sorting_1"> <?php echo $content_list->category ?> </td>
+                                <td class="btn_view">
+                                <div class="btn-group">                                 
+                                  <button type="button" id="view_manage_conetnt" name="view_manage_conetnt" class="btn btn-default">View</button>
+                                  <button type="button" class="btn btn-default">Ignore</button>
+                                </form>                                 
+                                                               
+                                </div> 
+                                </td>
+                                                                                    
+                            </tr>
+                             <?php } ?>
+                            
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                              <th rowspan="1" colspan="1">
+                                {{ trans('adminlte::adminlte.colunm_order') }}</th>
+                              <th rowspan="1" colspan="1">
+                                {{ trans('adminlte::adminlte.colunm_code') }}</th>
+                                <th rowspan="1" colspan="1">
+                                {{ trans('adminlte::adminlte.colunm_title') }}</th>
+                                <th rowspan="1" colspan="1">
+                                {{ trans('adminlte::adminlte.colunm_category') }}</th>
+                                <th rowspan="1" colspan="1">
+                                {{ trans('adminlte::adminlte.colunm_action') }}</th>
+                               
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
-            <!-- /.box-body -->
-            <div class="box-footer clearfix">
-              <!-- <ul class="pagination pagination-sm no-margin pull-right">
-                <li><a href="#">«</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">»</a></li>
-              </ul> -->
-              {{ $content_lists->links() }} 
-            </div>
-          </div>
-   <!-- --------------- end content list ------------------------- -->
+            
+        </div>
+    </div>
+<!-- --------------- end content list ------------------------- -->
 
 @stop
