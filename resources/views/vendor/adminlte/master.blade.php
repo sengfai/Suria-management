@@ -165,6 +165,11 @@
         $.get('{{url('getcontent')}}',{id:id},function(res){
             $('#txt_title').val(res.content_title);
             $('#url_category_').val(res.category_id);
+             $('#txt_question').val(res.content_purpose_question);
+              //$('#editor1').val(res.content_detail);
+              $('#editor1').text(res.content_detail);
+              CKEDITOR.instances['editor1'].setData(res.content_detail)
+
             console.log(res);
         })
     }
